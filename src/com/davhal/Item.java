@@ -2,7 +2,6 @@ package com.davhal;
 
 public class Item {
 
-    //Private fields
     private String itemName;
     private double price;
     private char sku;
@@ -24,6 +23,7 @@ public class Item {
     public double getPrice() {
         return price;
     }
+
     public char getSku() {
         return sku;
     }
@@ -43,7 +43,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return getClass().getName() +
                 "itemName='" + itemName + '\'' +
                 ", price=" + price +
                 ", sku=" + sku +

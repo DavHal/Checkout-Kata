@@ -1,23 +1,45 @@
 package com.davhal;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Basket extends Order {
 
+    ArrayList<Item> itemList;
+
     public Basket() {
-        ArrayList<Item> itemList = new ArrayList<>();
+        itemList = new ArrayList<>();
     }
 
-    public double totalCost(List<Item> basket) {
+    /*Total cost of all items in basket
+     stored within itemList List */
+    public double totalCost() {
 
-        double total = 0 ;
+        double total = 0;
 
-        for (Item i : basket) {
+        for (Item i : itemList) {
             total  = total + i.getPrice();
         }
-
         return total;
+    }
+
+    /* Creates and returns char array of all SKUs
+       within the basket
+     */
+    public char[] skuArray() {
+
+        int e = 0;
+        char[] skuArray = new char[itemList.size()];
+
+        for (Item i : itemList) {
+            skuArray[e] = i.getSku();
+            e++;
+        }
+
+        return skuArray;
+
+    }
+
+    public void printBasket(){
 
     }
 }

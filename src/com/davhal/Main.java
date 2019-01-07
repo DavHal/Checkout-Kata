@@ -1,32 +1,36 @@
 package com.davhal;
 
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
 
-        //This would be set dynamically by an order final count
-        int orderCount = 6;
+        Basket basket = new Basket();
 
-        ArrayList<Item> basket = new ArrayList<>();
-        basket.ensureCapacity(orderCount);
+        /*  The adding of items to the basket object ideally
+            would be via external GUI e.g. an online form */
+        basket.itemList.add(new Item("Apple", 0.50D, 'A' ));
+        basket.itemList.add( new Item("Pear", 0.20D, 'C' ));
+        basket.itemList.add(new Item("Banana", 0.30D, 'B' ));
+        basket.itemList.add(new Item("Kiwi", 0.15D, 'D' ));
+        basket.itemList.add(new Item("Apple", 0.50D, 'A' ));
 
-        basket.add(new Item("Apple", 0.50D, 'A' ));
-        basket.add(new Item("Apple", 0.50D, 'A' ));
-        basket.add(new Item("Banana", 0.30D, 'B' ));
-        basket.add( new Item("Pear", 0.20D, 'C' ));
-        basket.add(new Item("Banana", 0.30D, 'B' ));
-        basket.add(new Item("Kiwi", 0.15D, 'D' ));
-
-
-        for (Item i : basket) {
+        /* Prints each item and its details, could be
+           a method in Basket eventually */
+        for (Item i : basket.itemList) {
             System.out.println("Item Name= " + i.getItemName()
                     + ", Price= £" + String.format("%.2f", i.getPrice())
                     + ", SKU= " + i.getSku());
         }
 
-        // totalCost(basket);
+        /* Prints total of basket (pre-discount), demonstrating
+            totalCost() method returns double */
+        System.out.println("Total cost of basket: £"
+                + String.format("%.2f",  basket.totalCost()));
+
+        // Prints the skuArray array
+        for (char element : basket.skuArray()) {
+            System.out.print(element + ", ");
+        }
 
     }
 }
