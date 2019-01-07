@@ -31,5 +31,20 @@ public class Main {
         System.out.println("\n" + "Total cost of basket: £"
                 + String.format("%.2f",  customerBasket.totalCost()));
 
+
+        //TODO use frequency table array to count the frequency
+        // of SKUs in basket object
+
+        //int[] frequencyMap = new int[26];
+
+        //for length of SKU array
+        //cycle through SKUs
+        //turn char a-z into 1-26
+        //using value in SKU array as an index of the frequency map array
+        //increment accordingly in frequency array
+
+
+
+
     }
 }
