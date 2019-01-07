@@ -31,11 +31,22 @@ public class Main {
             System.out.print(element + ", ");
         }
 
-        //A dumb print out frequency of SKUs
-        System.out.println("\n" + "Frequency of SKU A = " + customerBasket.skuFrequencyCount('A'));
-        System.out.println("Frequency of SKU B = " + customerBasket.skuFrequencyCount('B'));
-        System.out.println("Frequency of SKU C = " + customerBasket.skuFrequencyCount('C'));
-        System.out.println("Frequency of SKU D = " + customerBasket.skuFrequencyCount('D'));
+        //Better way of printing SKU frequency WIP
+        for (int i = 0; i < customerBasket.itemList.size(); i++ ) {
+
+
+
+
+         /* if (int SKU = 60; SKU < 90; SKU++) {
+              System.out.println("Frequency of SKU "
+                      + (char) SKU
+                      + " = "
+                      + customerBasket.skuFrequencyCount((char) SKU));
+              SKU++;
+          }
+          */
+        }
+
 
 
         //Assumed range of SKUs needs to be tidied away somewhere sensible
