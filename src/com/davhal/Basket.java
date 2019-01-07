@@ -53,6 +53,28 @@ public class Basket extends Order {
     }
 
     /**
+     * This method places the frequency of SKUs in the basket within
+     * int frequencyMap[] at elements 1-26 respectively of the alphabet.
+     * the literal 'A' is being used as a value 'anchor' to maintain element
+     * range of '1'-'26'. The method assumes SKUs will be capital chars and passed
+     * chars are not validated yet.
+     * @param skuLetter this is the desired SKU to return the frequency of
+     * @return frequency of passed SKU within basket
+     */
+    public int skuFrequencyCount (char skuLetter ) {
+
+        int skuElementPosition = skuLetter - 'A';
+        int[] frequencyMap = new int[26];
+
+        for (int i = 0; i < skuArray().length; i++ ) {
+            int c = skuArray()[i] - 'A';
+            frequencyMap[c]++;
+        }
+
+        return frequencyMap[skuElementPosition];
+    }
+
+    /**
      * Prints contents of basket object
      */
     public void printBasket(){

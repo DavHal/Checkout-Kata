@@ -19,6 +19,10 @@ public class Main {
         // Prints each item and its details
         customerBasket.printBasket();
 
+        //Prints total of basket (pre-discount)
+        System.out.println("\n" + "Total cost of basket: £"
+                + String.format("%.2f",  customerBasket.totalCost()));
+
         //Prints skuArray using toString
         System.out.println(Arrays.toString(customerBasket.skuArray()));
 
@@ -27,28 +31,15 @@ public class Main {
             System.out.print(element + ", ");
         }
 
-        //Prints total of basket (pre-discount)
-        System.out.println("\n" + "Total cost of basket: £"
-                + String.format("%.2f",  customerBasket.totalCost()));
+        //A dumb print out frequency of SKUs
+        System.out.println("\n" + "Frequency of SKU A = " + customerBasket.skuFrequencyCount('A'));
+        System.out.println("Frequency of SKU B = " + customerBasket.skuFrequencyCount('B'));
+        System.out.println("Frequency of SKU C = " + customerBasket.skuFrequencyCount('C'));
+        System.out.println("Frequency of SKU D = " + customerBasket.skuFrequencyCount('D'));
 
 
-        // Will eventually be tidied away into method or new class
-        int[] frequencyMap = new int[26];
-        /*
-        This does assume that SKUs will always be caps A-Z
-        A = 60 Z = 90
-         */
-        for (int i = 0; i < customerBasket.skuArray().length; i++ ) {
-            // 'A' is being used as a value 'anchor' to maintain element
-            // range of '1'-'26'
-            int c = customerBasket.skuArray()[i] - 'A';
-            frequencyMap[c]++;
-        }
-
-        //Prints frequency array as well as 'SKU range' (A-Z)
-        //for visible progress proof above loop works
-        System.out.println(Arrays.toString(frequencyMap));
+        //Assumed range of SKUs needs to be tidied away somewhere sensible
         char[] skuRange ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        System.out.println(Arrays.toString(skuRange));
+
     }
 }
