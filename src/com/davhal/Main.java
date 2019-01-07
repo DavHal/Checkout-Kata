@@ -34,25 +34,21 @@ public class Main {
 
         // Will eventually be tidied away into method or new class
         int[] frequencyMap = new int[26];
-
-        //This assumes that SKU will always be caps A-Z
-        // A = 60 Z = 90
+        /*
+        This does assume that SKUs will always be caps A-Z
+        A = 60 Z = 90
+         */
         for (int i = 0; i < customerBasket.skuArray().length; i++ ) {
-            // 'A' is being used as a value anchor to maintain range of 1-26
+            // 'A' is being used as a value 'anchor' to maintain element
+            // range of '1'-'26'
             int c = customerBasket.skuArray()[i] - 'A';
             frequencyMap[c]++;
         }
 
+        //Prints frequency array as well as 'SKU range' (A-Z)
+        //for visible progress proof above loop works
         System.out.println(Arrays.toString(frequencyMap));
-
-        //for length of SKU array
-        //cycle through SKUs
-        //turn char a-z into 1-26
-        //using value in SKU array as an index of the frequency map array
-        //increment accordingly in frequency array
-
-
-
-
+        char[] skuRange ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        System.out.println(Arrays.toString(skuRange));
     }
 }
