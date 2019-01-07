@@ -14,13 +14,8 @@ public class Main {
         basket.itemList.add(new Item("Kiwi", 0.15D, 'D' ));
         basket.itemList.add(new Item("Apple", 0.50D, 'A' ));
 
-        /* Prints each item and its details, could be
-           a method in Basket eventually */
-        for (Item i : basket.itemList) {
-            System.out.println("Item Name= " + i.getItemName()
-                    + ", Price= £" + String.format("%.2f", i.getPrice())
-                    + ", SKU= " + i.getSku());
-        }
+        // Prints each item and its details
+        basket.printBasket();
 
         /* Prints total of basket (pre-discount), demonstrating
             totalCost() method returns double */

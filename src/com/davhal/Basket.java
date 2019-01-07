@@ -40,6 +40,11 @@ public class Basket extends Order {
     }
 
     public void printBasket(){
+        for (Item i : itemList) {
+            System.out.println("Item Name= " + i.getItemName()
+                    + ", Price= £" + String.format("%.2f", i.getPrice())
+                    + ", SKU= " + i.getSku());
+        }
 
     }
 }
