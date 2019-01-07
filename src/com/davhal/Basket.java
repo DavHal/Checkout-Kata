@@ -1,17 +1,28 @@
 package com.davhal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
+/**
+ * Basket object that holds items in an ArrayList of
+ * type Item
+ */
 public class Basket extends Order {
 
+    //Instance field
     ArrayList<Item> itemList;
 
+    /**
+     * Default constructor for Basket object
+     */
     public Basket() {
         itemList = new ArrayList<>();
     }
 
-    /*Total cost of all items in basket
-     stored within itemList List */
+    /**
+     * Total cost of all items in basket
+     * @return total
+     */
     public double totalCost() {
 
         double total = 0;
@@ -22,8 +33,9 @@ public class Basket extends Order {
         return total;
     }
 
-    /* Creates and returns char array of all SKUs
-       within the basket
+    /**
+     * Creates and returns a sorted char array of SKUs
+     * @return skuArray
      */
     public char[] skuArray() {
 
@@ -35,11 +47,16 @@ public class Basket extends Order {
             e++;
         }
 
+        Arrays.sort(skuArray);
         return skuArray;
 
     }
 
+    /**
+     * Prints contents of basket object
+     */
     public void printBasket(){
+
         for (Item i : itemList) {
             System.out.println("Item Name= " + i.getItemName()
                     + ", Price= £" + String.format("%.2f", i.getPrice())
@@ -47,4 +64,5 @@ public class Basket extends Order {
         }
 
     }
+
 }
