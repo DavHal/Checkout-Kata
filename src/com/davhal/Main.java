@@ -32,10 +32,18 @@ public class Main {
                 + String.format("%.2f",  customerBasket.totalCost()));
 
 
-        //TODO use frequency table array to count the frequency
-        // of SKUs in basket object
+        // Will eventually be tidied away into method or new class
+        int[] frequencyMap = new int[26];
 
-        //int[] frequencyMap = new int[26];
+        //This assumes that SKU will always be caps A-Z
+        // A = 60 Z = 90
+        for (int i = 0; i < customerBasket.skuArray().length; i++ ) {
+            // 'A' is being used as a value anchor to maintain range of 1-26
+            int c = customerBasket.skuArray()[i] - 'A';
+            frequencyMap[c]++;
+        }
+
+        System.out.println(Arrays.toString(frequencyMap));
 
         //for length of SKU array
         //cycle through SKUs
