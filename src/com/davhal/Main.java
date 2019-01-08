@@ -28,6 +28,16 @@ public class Main {
         //Prints a table of the SKU count in a passed Basket Object
         printSkuTable(customerBasket);
 
+        String A = "3 for 150";
+        String B = "2 for 45";
+        String[] discountA = A.split(" ");
+
+        System.out.println(Arrays.toString(discountA));
+
+        int u = Integer.parseInt(discountA[0]);
+
+        System.out.println(u);
+
 
 
     }
