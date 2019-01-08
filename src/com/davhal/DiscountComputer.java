@@ -25,10 +25,9 @@ public class DiscountComputer {
      }
     */
 
-    // This to simulate the 'x for y' rules coming into program dynamically
-    // Could make a discount object for each SKU then apply discount logic for x
-    // elements in discount object array? idk.
-    String skuA = "A 3 for 150";
+    // This to simulate the 'x for y' rules that would come
+    // into program dynamically
+    String skuA = "A 3 for 130";
     String skuB = "B 2 for 45";
 
     /*
@@ -46,14 +45,26 @@ public class DiscountComputer {
     DiscountComputer(){
     }
 
+    //Take string array and build discount object from it [A, 3, for , 150]
 
+
+    public void buildDiscountObjects() {
+
+
+        // Discount objects would be created dynamically to go in loop
+        // for each rule
+        char skuEx = discountA[0].charAt(0);
+        int countEx = Integer.parseInt(discountA[1]);
+        String prepEx = discountA[2];
+        double offerPriceEx = Double.parseDouble(discountA[3]);
+
+        // [A, 3, for, 150]
+        discounts.add(new Discount(skuEx, countEx, prepEx, offerPriceEx));
+
+    }
 
 
     public void Discount(Basket passedBasket) {
-
-        //These discount objects would be created dynamically via an external input method
-        discounts.add(new Discount('A', 3, "for", 150));
-        discounts.add(new Discount('B', 2, "for", 45));
 
         int applyDiscountCount = passedBasket.skuFrequencyCount('A') / Integer.parseInt(discountA[1]);
 

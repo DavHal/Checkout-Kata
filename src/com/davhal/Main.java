@@ -29,9 +29,10 @@ public class Main {
         //Prints a table of the SKU count in a passed Basket Object
         printSkuTable(customerBasket);
 
-
-
-        Discount skuA = new Discount('A', 3, "for", 150);
+        //////////////////////////
+        /// WIP Testing
+        ////////////////////////
+        Discount skuA = new Discount('A', 3, "for", 1.30);
 
         Discount skuB = new Discount('B', 2, "for", 45);
 
@@ -45,7 +46,7 @@ public class Main {
                 .append(": ")
                 .append(applyDiscountCount)
                 .append(" time(s)").toString());
-
+        ////////////////////////
 
 
 
