@@ -2,7 +2,7 @@ package com.davhal;
 
 /**
  * Abstract class for specialised order types
- * to inherit from
+ * to inherit from i.e. 'Basket' or 'Checkout
  */
 public abstract class Order {
 

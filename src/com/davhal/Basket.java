@@ -35,9 +35,10 @@ public class Basket extends Order {
 
     /**
      * Creates and returns a sorted char array of SKUs
+     * of the items within the basket object
      * @return skuArray
      */
-    public char[] skuArray() {
+    public char[] skusContainedInBasket() {
 
         int e = 0;
         char[] skuArray = new char[itemList.size()];
@@ -66,8 +67,8 @@ public class Basket extends Order {
         int skuElementPosition = skuLetter - 'A';
         int[] frequencyMap = new int[26];
 
-        for (int i = 0; i < skuArray().length; i++ ) {
-            int c = skuArray()[i] - 'A';
+        for (int i = 0; i < skusContainedInBasket().length; i++ ) {
+            int c = skusContainedInBasket()[i] - 'A';
             frequencyMap[c]++;
         }
 
@@ -75,14 +76,31 @@ public class Basket extends Order {
     }
 
     /**
-     * Prints contents of basket object
+     * Returns the entire array of the frequency of SKUs
+     * @return frequencyMap
+     */
+    public int[] skuFrequencyCount () {
+
+        int[] frequencyMap = new int[26];
+
+        for (int i = 0; i < skusContainedInBasket().length; i++ ) {
+            int c = skusContainedInBasket()[i] - 'A';
+            frequencyMap[c]++;
+        }
+
+        return frequencyMap;
+    }
+
+    /**
+     * Prints all item details within the basket object
      */
     public void printBasket(){
-
         for (Item i : itemList) {
             System.out.println("Item Name= " + i.getItemName()
-                    + ", Price= £" + String.format("%.2f", i.getPrice())
-                    + ", SKU= " + i.getSku());
+                    + "   "
+                    + "Price= £" + String.format("%.2f", i.getPrice())
+                    + "   "
+                    + "SKU= " + i.getSku());
         }
 
     }

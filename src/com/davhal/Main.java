@@ -23,20 +23,24 @@ public class Main {
         System.out.println("\n" + "Total cost of basket: £"
                 + String.format("%.2f",  customerBasket.totalCost()));
 
-        //Prints skuArray using toString
-        System.out.println(Arrays.toString(customerBasket.skuArray()));
+        //Prints skusContainedInBasket
+        System.out.println(Arrays.toString(customerBasket.skusContainedInBasket()));
 
-        // Prints SKU array iteratively
-        for (char element : customerBasket.skuArray()) {
-            System.out.print(element + ", ");
-        }
+        //Assumed range of SKUs needs to be tidied away somewhere sensible
+        char[] skuRange ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+
+        System.out.println(Arrays.toString(customerBasket.skuFrequencyCount()));
+        System.out.println(Arrays.toString(skuRange));
+
+
+
+
+
+
+
 
         //Better way of printing SKU frequency WIP
         for (int i = 0; i < customerBasket.itemList.size(); i++ ) {
-
-
-
-
          /* if (int SKU = 60; SKU < 90; SKU++) {
               System.out.println("Frequency of SKU "
                       + (char) SKU
@@ -46,11 +50,6 @@ public class Main {
           }
           */
         }
-
-
-
-        //Assumed range of SKUs needs to be tidied away somewhere sensible
-        char[] skuRange ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     }
 }
