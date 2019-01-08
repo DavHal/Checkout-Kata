@@ -1,5 +1,6 @@
 package com.davhal;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DiscountComputer {
@@ -37,6 +38,8 @@ public class DiscountComputer {
     String[] discountA = skuA.split(" ");
     String[] discountB = skuB.split(" ");
 
+    ArrayList<Discount> discounts = new ArrayList<>();
+
     /**
      * Empty default constructor
      */
@@ -46,14 +49,22 @@ public class DiscountComputer {
 
 
 
-
-
-
     public void Discount(Basket passedBasket) {
+
+        //These discount objects would be created dynamically via an external input method
+        discounts.add(new Discount('A', 3, "for", 150));
+        discounts.add(new Discount('B', 2, "for", 45));
 
         int applyDiscountCount = passedBasket.skuFrequencyCount('A') / Integer.parseInt(discountA[1]);
 
-
+        System.out.println(new StringBuilder()
+                .append("How many times to apply discount ")
+                .append("'")
+                .append(skuA.toString())
+                .append("'")
+                .append(": ")
+                .append(applyDiscountCount)
+                .append(" time(s)").toString());
 
     }
 

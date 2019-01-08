@@ -30,26 +30,24 @@ public class Main {
         printSkuTable(customerBasket);
 
 
-        String A = "A 3 for 150";
-        String B = "B 2 for 45";
-        String[] discountOne = A.split(" ");
 
         Discount skuA = new Discount('A', 3, "for", 150);
 
+        Discount skuB = new Discount('B', 2, "for", 45);
+
+        int applyDiscountCount = customerBasket.skuFrequencyCount(skuA.getSku()) / skuA.getCount();
+
+        System.out.println(new StringBuilder()
+                .append("How many times to apply discount ")
+                .append("'")
+                .append(skuA.toString())
+                .append("'")
+                .append(": ")
+                .append(applyDiscountCount)
+                .append(" time(s)").toString());
 
 
 
-
-
-
-        System.out.println(Arrays.toString(discountOne));
-
-        System.out.println("count of sku A " + customerBasket.skuFrequencyCount('A'));
-        System.out.println("fetched sku from discount array " + Integer.parseInt(discountOne[1]));
-
-       int applyDiscountCount = customerBasket.skuFrequencyCount('A') / Integer.parseInt(discountOne[1]);
-
-       System.out.println("How many times to apply discount "+  A + " " + applyDiscountCount);
 
 
 

@@ -46,4 +46,14 @@ public class Discount {
     public void setOfferPrice(double offerPrice) {
         this.offerPrice = offerPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Discount: " +
+                "SKU= " + sku + ", " +
+                count + " " +
+                preposition + " " +
+                String.format("£" + "%.2f", offerPrice)
+                ;
+    }
 }
