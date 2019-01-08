@@ -17,6 +17,7 @@ public class Main {
         customerBasket.itemList.add(new Item("Banana", 0.30D, 'B' ));
         customerBasket.itemList.add(new Item("Kiwi", 0.15D, 'D' ));
         customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
+        customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
 
         // Prints each item and its details
         customerBasket.printBasket();
@@ -28,15 +29,18 @@ public class Main {
         //Prints a table of the SKU count in a passed Basket Object
         printSkuTable(customerBasket);
 
-        String A = "3 for 150";
-        String B = "2 for 45";
+        String A = "A 3 for 150";
+        String B = "B 2 for 45";
         String[] discountA = A.split(" ");
 
         System.out.println(Arrays.toString(discountA));
 
-        int u = Integer.parseInt(discountA[0]);
+        System.out.println("count of sku A " + customerBasket.skuFrequencyCount('A'));
+        System.out.println("fetched sku from discount array " + Integer.parseInt(discountA[1]));
 
-        System.out.println(u);
+       int applyDiscountCount = customerBasket.skuFrequencyCount('A') / Integer.parseInt(discountA[1]);
+
+       System.out.println("How many times to apply discount "+  A + " " + applyDiscountCount);
 
 
 
