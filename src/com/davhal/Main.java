@@ -2,6 +2,8 @@ package com.davhal;
 
 import java.util.Arrays;
 
+import static com.davhal.DiscountComputer.printSkuTable;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,33 +25,10 @@ public class Main {
         System.out.println("\n" + "Total cost of basket: £"
                 + String.format("%.2f",  customerBasket.totalCost()));
 
-        //Prints skusContainedInBasket
-        System.out.println(Arrays.toString(customerBasket.skusContainedInBasket()));
-
-        //Assumed range of SKUs needs to be tidied away somewhere sensible
-        char[] skuRange ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-
-        System.out.println(Arrays.toString(customerBasket.skuFrequencyCount()));
-        System.out.println(Arrays.toString(skuRange));
+        //Prints a table of the SKU count in a passed Basket Object
+        printSkuTable(customerBasket);
 
 
-
-
-
-
-
-
-        //Better way of printing SKU frequency WIP
-        for (int i = 0; i < customerBasket.itemList.size(); i++ ) {
-         /* if (int SKU = 60; SKU < 90; SKU++) {
-              System.out.println("Frequency of SKU "
-                      + (char) SKU
-                      + " = "
-                      + customerBasket.skuFrequencyCount((char) SKU));
-              SKU++;
-          }
-          */
-        }
 
     }
 }
