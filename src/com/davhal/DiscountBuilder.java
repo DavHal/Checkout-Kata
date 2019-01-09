@@ -8,8 +8,9 @@ import java.util.ArrayList;
  */
 public class DiscountBuilder {
 
-    ArrayList<Discount> discounts = new ArrayList<>();
+    ArrayList<Discount> discountsList = new ArrayList<>();
     ArrayList<String> rawDiscountInfo = new ArrayList<>();
+    int addCounterControl = 0;
 
     /**
      * Default constructor
@@ -22,6 +23,8 @@ public class DiscountBuilder {
 
         rawDiscountInfo.add("A 3 for 1.30");
         rawDiscountInfo.add("B 2 for 0.45");
+
+        buildDiscountObjects();
     }
 
     /**
@@ -38,7 +41,7 @@ public class DiscountBuilder {
 
             // Build new Discount object object by extracting the
             // object arguments from string array
-            discounts.add(new Discount(
+            discountsList.add(new Discount(
                     discount[0].charAt(0),
                     Integer.parseInt(discount[1]),
                     discount[2],
@@ -47,13 +50,15 @@ public class DiscountBuilder {
 
     }
 
+    /**
+     * Prints the discounts currently being
+     * offered
+     */
     public void printDiscounts() {
-
-        buildDiscountObjects();
 
         System.out.println("*****CURRENT OFFERS*****");
 
-        for (Discount d : discounts) {
+        for (Discount d : discountsList) {
             System.out.println("SKU= "
                     + d.getSku()
                     + " offer:"
@@ -67,4 +72,7 @@ public class DiscountBuilder {
         System.out.println("************************");
     }
 
+    public ArrayList<Discount> getDiscountsList() {
+        return discountsList;
+    }
 }

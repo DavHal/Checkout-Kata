@@ -25,44 +25,36 @@ public class DiscountComputer {
      }
     */
 
-    // This to simulate the 'x for y' rules that would come
-    // into program dynamically
-    String skuA = "A 3 for 130";
-    String skuB = "B 2 for 45";
-
-    /*
-    Uses space as delimiter to put each string 'word' into string array
-    enabling dynamic fetching of values to be used in discount expressions
-    */
-    String[] discountA = skuA.split(" ");
-    String[] discountB = skuB.split(" ");
-
-    ArrayList<Discount> discounts = new ArrayList<>();
+    ArrayList<Discount> currentDiscounts = new DiscountBuilder().discountsList;
 
     /**
      * Empty default constructor
      */
-    DiscountComputer(){
+    public DiscountComputer(){
     }
 
-    //Take string array and build discount object from it [A, 3, for , 150]
+    /**
+     *  Prints out how many times a discount will be applied to a
+     *  passed Basket Object
+      * @param passedBasket
+     */
+    public void printDiscountsAvailable(Basket passedBasket) {
 
+        for(Discount d : currentDiscounts) {
 
+            int applyDiscountCount = (passedBasket.skuFrequencyCount(d.getSku()) / d.getCount());
 
-    public void Discount(Basket passedBasket) {
+            System.out.println(new StringBuilder()
+                    .append("How many times to apply discount ")
+                    .append("'")
+                    .append(d.getSku())
+                    .append("'")
+                    .append(": ")
+                    .append(applyDiscountCount)
+                    .append(" time(s)").toString());
 
-        int applyDiscountCount = passedBasket.skuFrequencyCount('A') / Integer.parseInt(discountA[1]);
-
-        System.out.println(new StringBuilder()
-                .append("How many times to apply discount ")
-                .append("'")
-                .append(skuA.toString())
-                .append("'")
-                .append(": ")
-                .append(applyDiscountCount)
-                .append(" time(s)").toString());
-
-    }
+        }
+   }
 
     /**
      * Prints an SKU frequency table of the Basket object passed

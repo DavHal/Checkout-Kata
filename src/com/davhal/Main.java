@@ -7,7 +7,10 @@ public class Main {
     public static void main(String[] args) {
 
         Basket customerBasket = new Basket();
+
         DiscountBuilder currentDiscounts = new DiscountBuilder();
+
+        DiscountComputer discountComputer = new DiscountComputer();
 
         /*  The adding of items to the basket object ideally
             would be via external GUI e.g. an online form.
@@ -28,39 +31,11 @@ public class Main {
         //Prints a table of the SKU count in a passed Basket Object
         printSkuTable(customerBasket);
 
-        //Prints current discounts
+        //Prints current discounts available
         currentDiscounts.printDiscounts();
 
-
-
-
-
-
-
-
-
-        //////////////////////////
-        /// WIP Testing
-        ////////////////////////
-        Discount skuA = new Discount('A', 3, "for", 1.30);
-
-        Discount skuB = new Discount('B', 2, "for", 45);
-
-        int applyDiscountCount = customerBasket.skuFrequencyCount(skuA.getSku()) / skuA.getCount();
-
-        System.out.println(new StringBuilder()
-                .append("How many times to apply discount ")
-                .append("'")
-                .append(skuA.toString())
-                .append("'")
-                .append(": ")
-                .append(applyDiscountCount)
-                .append(" time(s)").toString());
-        ////////////////////////
-
-
-
-
+        //Prints the discounts available to passed customer basket
+        discountComputer.printDiscountsAvailable(customerBasket);
 
     }
 }
