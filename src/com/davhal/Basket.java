@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class Basket extends Order {
 
     ArrayList<Item> itemList;
+    final double preDiscountTotal = totalCost();
 
     /**
      * Default constructor for Basket object

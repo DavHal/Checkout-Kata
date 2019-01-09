@@ -22,6 +22,7 @@ public class Main {
         customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
         customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
 
+
         // Prints each item and its details
         customerBasket.printBasket();
 
@@ -36,6 +37,9 @@ public class Main {
 
         //Prints the discounts available to passed customer basket
         discountComputer.printDiscountsAvailable(customerBasket);
+
+
+
 
     }
 }

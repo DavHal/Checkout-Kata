@@ -42,6 +42,7 @@ public class DiscountComputer {
 
         for(Discount d : currentDiscounts) {
 
+            //How many times the discount applies to the basket
             int applyDiscountCount = (passedBasket.skuFrequencyCount(d.getSku()) / d.getCount());
 
             System.out.println(new StringBuilder()
@@ -56,6 +57,35 @@ public class DiscountComputer {
         }
    }
 
+   public double applyDiscounts(Basket passedBasket) {
+
+       double savings = 0;
+
+       // Cycle through each discount.
+       // For each relevant one, apply to total savings.
+       // Minus savings from preDiscountTotal val in Basket.
+       for (Discount d :currentDiscounts) {
+
+           //How many times the discount applies to the basket
+           int applyDiscountCount = (passedBasket.skuFrequencyCount(d.getSku()) / d.getCount());
+
+           //If there are discounts, apply them
+           if (applyDiscountCount > 0 ) {
+               //Only apply discount by how many times it appears
+               for (int i = 0; i < applyDiscountCount; i++){
+                   //x = price of item MULTIPLY by discountCount
+                   //y Subtract x by discountOfferPrice
+                   //(savings = saving + y)
+               }
+           }
+       }
+
+       double postDiscountTotal = (passedBasket.preDiscountTotal - savings);
+       return postDiscountTotal;
+
+   }
+
+
     /**
      * Prints an SKU frequency table of the Basket object passed
      * @param passedBasket
@@ -67,7 +97,6 @@ public class DiscountComputer {
         System.out.println(Arrays.toString(skuRange));
         System.out.println(Arrays.toString(passedBasket.skuFrequencyCount()));
     }
-
 
 
 }
