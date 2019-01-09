@@ -30,21 +30,19 @@ public class DiscountBuilder {
      */
     public void buildDiscountObjects() {
 
-
         //'For each' loop
         for (String d : rawDiscountInfo) {
 
             //Put string into an array, space delimited
             String[] discount = d.split(" ");
 
-            //Extract Discount object arguments from string array
-            char skuEx = discount[0].charAt(0);
-            int countEx = Integer.parseInt(discount[1]);
-            String prepEx = discount[2];
-            double offerPriceEx = Double.parseDouble(discount[3]);
-
-            //Create new Discount object and add to Discount List
-            discounts.add(new Discount(skuEx, countEx, prepEx, offerPriceEx));
+            // Build new Discount object object by extracting the
+            // object arguments from string array
+            discounts.add(new Discount(
+                    discount[0].charAt(0),
+                    Integer.parseInt(discount[1]),
+                    discount[2],
+                    Double.parseDouble(discount[3])));
         }
 
     }
@@ -53,7 +51,7 @@ public class DiscountBuilder {
 
         buildDiscountObjects();
 
-        System.out.println("***CURRENT OFFERS***");
+        System.out.println("*****CURRENT OFFERS*****");
 
         for (Discount d : discounts) {
             System.out.println("SKU= "
@@ -63,10 +61,10 @@ public class DiscountBuilder {
                     + " "
                     + d.getPreposition()
                     + " "
-                    + String.format("%.2f", d.getOfferPrice()));
+                    + String.format("£%.2f", d.getOfferPrice()));
        }
 
-        System.out.println("********************");
+        System.out.println("************************");
     }
 
 }
