@@ -48,21 +48,6 @@ public class DiscountComputer {
     //Take string array and build discount object from it [A, 3, for , 150]
 
 
-    public void buildDiscountObjects() {
-
-
-        // Discount objects would be created dynamically to go in loop
-        // for each rule
-        char skuEx = discountA[0].charAt(0);
-        int countEx = Integer.parseInt(discountA[1]);
-        String prepEx = discountA[2];
-        double offerPriceEx = Double.parseDouble(discountA[3]);
-
-        // [A, 3, for, 150]
-        discounts.add(new Discount(skuEx, countEx, prepEx, offerPriceEx));
-
-    }
-
 
     public void Discount(Basket passedBasket) {
 

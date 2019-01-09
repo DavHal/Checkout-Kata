@@ -11,7 +11,8 @@ public class Main {
         Basket customerBasket = new Basket();
 
         /*  The adding of items to the basket object ideally
-            would be via external GUI e.g. an online form */
+            would be via external GUI e.g. an online form.
+             You can .add to itemList as much as you want below */
         customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
         customerBasket.itemList.add( new Item("Pear", 0.20D, 'C' ));
         customerBasket.itemList.add(new Item("Banana", 0.30D, 'B' ));

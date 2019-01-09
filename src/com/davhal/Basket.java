@@ -9,7 +9,6 @@ import java.util.Arrays;
  */
 public class Basket extends Order {
 
-    //Instance field
     ArrayList<Item> itemList;
 
     /**

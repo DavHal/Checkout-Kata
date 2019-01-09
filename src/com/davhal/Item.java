@@ -1,7 +1,7 @@
 package com.davhal;
 
 /**
- * Class Item that holds details of an intialised Item
+ * Class that holds details of an Item
  */
 public class Item {
 
