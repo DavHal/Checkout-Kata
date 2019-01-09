@@ -14,7 +14,7 @@ public class DiscountBuilder {
     /**
      * Default constructor
      */
-    public void Discountbuilder() {
+    public DiscountBuilder() {
 
         /* This to simulate the 'x for y' rules that would come
            into program dynamically. Add further rules below
@@ -37,18 +37,36 @@ public class DiscountBuilder {
             //Put string into an array, space delimited
             String[] discount = d.split(" ");
 
+            //Extract Discount object arguments from string array
             char skuEx = discount[0].charAt(0);
-
             int countEx = Integer.parseInt(discount[1]);
-
             String prepEx = discount[2];
-
             double offerPriceEx = Double.parseDouble(discount[3]);
 
-
+            //Create new Discount object and add to Discount List
             discounts.add(new Discount(skuEx, countEx, prepEx, offerPriceEx));
         }
 
+    }
+
+    public void printDiscounts() {
+
+        buildDiscountObjects();
+
+        System.out.println("***CURRENT OFFERS***");
+
+        for (Discount d : discounts) {
+            System.out.println("SKU= "
+                    + d.getSku()
+                    + " offer:"
+                    + d.getCount()
+                    + " "
+                    + d.getPreposition()
+                    + " "
+                    + String.format("%.2f", d.getOfferPrice()));
+       }
+
+        System.out.println("********************");
     }
 
 }

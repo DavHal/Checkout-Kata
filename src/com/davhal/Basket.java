@@ -32,6 +32,12 @@ public class Basket extends Order {
         return total;
     }
 
+    public void printTotalCost() {
+
+        System.out.println("\n" + "Total cost of basket: £"
+                + String.format("%.2f", totalCost()));
+    }
+
     /**
      * Creates and returns a sorted char array of SKUs
      * of the items within the basket object
