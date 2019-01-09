@@ -59,7 +59,7 @@ public class DiscountComputer {
 
    public double applyDiscounts(Basket passedBasket) {
 
-       double savings = 0;
+       double totalSavings = 0;
 
        // Cycle through each discount.
        // For each relevant one, apply to total savings.
@@ -73,14 +73,20 @@ public class DiscountComputer {
            if (applyDiscountCount > 0 ) {
                //Only apply discount by how many times it appears
                for (int i = 0; i < applyDiscountCount; i++){
-                   //x = price of item MULTIPLY by discountCount
-                   //y Subtract x by discountOfferPrice
-                   //(savings = saving + y)
+                   //Go through basket items to find matching SKU then
+                   // grab price of that item
+                   for (Item singleItem : passedBasket.itemList) {
+                       if (singleItem.getSku() == d.getSku()) {
+                           double itemPrice = singleItem.getPrice();
+                           double savings = itemPrice * d.getCount();
+                           totalSavings = totalSavings + savings;
+                       }
+                   }
                }
            }
        }
 
-       double postDiscountTotal = (passedBasket.preDiscountTotal - savings);
+       double postDiscountTotal = (passedBasket.totalCost() - totalSavings);
        return postDiscountTotal;
 
    }

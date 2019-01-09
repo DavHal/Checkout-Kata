@@ -14,7 +14,7 @@ public class Main {
 
         /*  The adding of items to the basket object ideally
             would be via external GUI e.g. an online form.
-             You can add to itemList as much as you want below */
+            You can .add to itemList below */
         customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
         customerBasket.itemList.add(new Item("Pear", 0.20D, 'C' ));
         customerBasket.itemList.add(new Item("Banana", 0.30D, 'B' ));
@@ -37,6 +37,8 @@ public class Main {
 
         //Prints the discounts available to passed customer basket
         discountComputer.printDiscountsAvailable(customerBasket);
+
+        System.out.println("£" + discountComputer.applyDiscounts(customerBasket));
 
 
 
