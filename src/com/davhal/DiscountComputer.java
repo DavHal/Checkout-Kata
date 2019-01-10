@@ -68,22 +68,20 @@ public class DiscountComputer {
            //How many times the discount applies to the basket
            int applyDiscountCount = (passedBasket.skuFrequencyCount(d.getSku()) / d.getCount());
 
-           //If there are discounts, apply them
-           if (applyDiscountCount > 0 ) {
-               //Only apply discount by how many times it appears
-               for (int i = 0; i <= applyDiscountCount; i++){
-                   // Go through basket items to find matching SKU then grab price of that item
-                   for (Item singleItem : passedBasket.itemList) {
-                       if (singleItem.getSku() == d.getSku()) {
+           //Total of the pre-savings item total
+           BigDecimal preSavingItemTotal = BigDecimal.valueOf(((singleItem.getPrice() * d.getCount())));
 
+           //What the offer price is
+           BigDecimal offerPrice = BigDecimal.valueOf(d.getOfferPrice());
 
-                           BigDecimal preSavingItemTotal = BigDecimal.valueOf(((singleItem.getPrice() * d.getCount())));
+           //How much saving a discount applied once would be
+           BigDecimal savingsSingle = preSavingItemTotal.subtract(offerPrice);
 
-                           BigDecimal offerPrice = BigDecimal.valueOf(d.getOfferPrice());
+           // Single savings multiplied by frequency of how many times
+           // the offer appears in basket gives total savings using current discount
+           BigDecimal totalSavings = savingsSingle.multiply(BigDecimal.valueOf(applyDiscountCount));
 
-                           BigDecimal savings = preSavingItemTotal.subtract(offerPrice);
-
-                           totalSavings = totalSavings.add(savings);
+           totalSavings = totalSavings.add(totalSavings);
                        }
                    }
                }
