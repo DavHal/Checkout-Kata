@@ -1,5 +1,6 @@
 package com.davhal;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -57,13 +58,11 @@ public class DiscountComputer {
         }
    }
 
-   public double applyDiscounts(Basket passedBasket) {
+   public BigDecimal applyDiscounts(Basket passedBasket) {
 
-       double totalSavings = 0;
+       BigDecimal totalSavings = BigDecimal.valueOf(0);
 
-       // Cycle through each discount.
-       // For each relevant one, apply to total savings.
-       // Minus savings from preDiscountTotal val in Basket.
+       // Cycle through each discount available.
        for (Discount d :currentDiscounts) {
 
            //How many times the discount applies to the basket
@@ -72,22 +71,33 @@ public class DiscountComputer {
            //If there are discounts, apply them
            if (applyDiscountCount > 0 ) {
                //Only apply discount by how many times it appears
-               for (int i = 0; i < applyDiscountCount; i++){
-                   //Go through basket items to find matching SKU then
-                   // grab price of that item
+               for (int i = 0; i <= applyDiscountCount; i++){
+                   // Go through basket items to find matching SKU then grab price of that item
                    for (Item singleItem : passedBasket.itemList) {
                        if (singleItem.getSku() == d.getSku()) {
-                           double itemPrice = singleItem.getPrice();
-                           double savings = itemPrice * d.getCount();
-                           totalSavings = totalSavings + savings;
+
+
+                           BigDecimal preSavingItemTotal = BigDecimal.valueOf(((singleItem.getPrice() * d.getCount())));
+
+                           BigDecimal offerPrice = BigDecimal.valueOf(d.getOfferPrice());
+
+                           BigDecimal savings = preSavingItemTotal.subtract(offerPrice);
+
+                           totalSavings = totalSavings.add(savings);
                        }
                    }
                }
            }
        }
 
-       double postDiscountTotal = (passedBasket.totalCost() - totalSavings);
-       return postDiscountTotal;
+       BigDecimal basketTotal = BigDecimal.valueOf(passedBasket.totalCost());
+
+       BigDecimal ppostTotalDiscount = basketTotal.subtract(totalSavings);
+
+       return ppostTotalDiscount;
+
+       //double postDiscountTotal = (passedBasket.totalCost() - totalSavings);
+       //return postDiscountTotal;
 
    }
 

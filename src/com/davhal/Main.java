@@ -15,12 +15,12 @@ public class Main {
         /*  The adding of items to the basket object ideally
             would be via external GUI e.g. an online form.
             You can .add to itemList below */
-        customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
-        customerBasket.itemList.add(new Item("Pear", 0.20D, 'C' ));
-        customerBasket.itemList.add(new Item("Banana", 0.30D, 'B' ));
-        customerBasket.itemList.add(new Item("Kiwi", 0.15D, 'D' ));
-        customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
-        customerBasket.itemList.add(new Item("Apple", 0.50D, 'A' ));
+        customerBasket.itemList.add(new Item("Apple", .50D, 'A' ));
+        customerBasket.itemList.add(new Item("Pear", .20D, 'C' ));
+        customerBasket.itemList.add(new Item("Banana", .30D, 'B' ));
+        customerBasket.itemList.add(new Item("Kiwi", .15D, 'D' ));
+        customerBasket.itemList.add(new Item("Apple", .50D, 'A' ));
+        customerBasket.itemList.add(new Item("Apple", .50D, 'A' ));
 
 
         // Prints each item and its details
