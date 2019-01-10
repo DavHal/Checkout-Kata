@@ -39,7 +39,13 @@ public class DiscountComputer {
         }
    }
 
-   public BigDecimal applyDiscounts(Basket passedBasket) {
+    /**
+     * Applies current discounts available to passed basket then
+     * returns the post discount total.
+     * @param passedBasket
+     * @return Returns the post discount total of the passed basket
+     */
+    public BigDecimal applyDiscounts(Basket passedBasket) {
 
         // Cycle through each discount available.
        for (Discount d :currentDiscounts) {
@@ -60,6 +66,7 @@ public class DiscountComputer {
            // the offer appears in basket gives total savings using current discount
            BigDecimal totalDiscountSavings = savingsSingle.multiply(BigDecimal.valueOf(applyDiscountCount));
 
+           //Adds savings to the object instance field
            totalSavings = totalDiscountSavings.add(totalSavings);
        }
 
@@ -82,11 +89,19 @@ public class DiscountComputer {
         System.out.println(Arrays.toString(passedBasket.skuFrequencyCount()));
     }
 
+    /**
+     * Prints total savings message
+     */
+    public void totalSavingsMsg() {
+        System.out.println("You saved a total of " + String.format("£%.2f", getTotalSavings()) + "!!");
+    }
+
+    /**
+     * Returns the total savings BigDecimal
+     * @return total savings figure
+     */
     public BigDecimal getTotalSavings() {
         return totalSavings;
     }
 
-    public void setTotalSavings(BigDecimal totalSavings) {
-        this.totalSavings = totalSavings;
-    }
 }

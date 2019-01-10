@@ -72,6 +72,10 @@ public class DiscountBuilder {
         System.out.println("************************");
     }
 
+    /**
+     * Returns list of current discounts
+     * @return List of current discounts
+     */
     public ArrayList<Discount> getDiscountsList() {
         return discountsList;
     }

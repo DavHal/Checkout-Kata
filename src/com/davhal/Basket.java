@@ -33,6 +33,9 @@ public class Basket extends Order {
         return total;
     }
 
+    /**
+     * Prints the total cost of the basket
+     */
     public void printTotalCost() {
 
         System.out.println("\n" + "Total cost of basket: £"

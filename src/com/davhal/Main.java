@@ -38,13 +38,11 @@ public class Main {
         //Prints the discounts available to passed customer basket
         discountComputer.printDiscountsAvailable(customerBasket);
 
-
+        //Prints total cost of basket after discount
         System.out.println("Total cost of basket with discount: " + "£" + discountComputer.applyDiscounts(customerBasket));
 
-        System.out.println("You saved a total of " + String.format("£%.2f", discountComputer.getTotalSavings()) + "!!");
-
-
-
+        //Prints total savings message
+        discountComputer.totalSavingsMsg();
 
     }
 }
