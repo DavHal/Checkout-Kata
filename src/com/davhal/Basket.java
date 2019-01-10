@@ -20,6 +20,7 @@ public class Basket extends Order {
 
     /**
      * Total cost of all items in basket
+     *
      * @return total
      */
     public double totalCost() {
@@ -27,7 +28,7 @@ public class Basket extends Order {
         double total = 0;
 
         for (Item i : itemList) {
-            total  = total + i.getPrice();
+            total = total + i.getPrice();
         }
         return total;
     }
@@ -41,6 +42,7 @@ public class Basket extends Order {
     /**
      * Creates and returns a sorted char array of SKUs
      * of the items within the basket object
+     *
      * @return skuArray
      */
     public char[] skusContainedInBasket() {
@@ -57,6 +59,24 @@ public class Basket extends Order {
         return skuArray;
 
     }
+
+    /**
+     * Will return price of item with matching SKU. If no items with
+     * matching SKUs are found, will return 0;
+     * @param passedSku
+     * @return item price of matched SKU item OR price of found SKU item
+     */
+    public double getItemPrice(char passedSku) {
+
+        for (Item i : itemList) {
+            if (passedSku == i.getSku()) {
+                return i.getPrice();
+            }
+        }
+
+        return 0;
+    }
+
 
     /**
      * This method places the frequency of SKUs in the basket within
