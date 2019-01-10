@@ -39,7 +39,7 @@ public class Main {
         discountComputer.printDiscountsAvailable(customerBasket);
 
         //Prints total cost of basket after discount
-        System.out.println("Total cost of basket with discount: " + "£" + discountComputer.applyDiscounts(customerBasket));
+        discountComputer.totalCostWithDiscountsMsg(customerBasket);
 
         //Prints total savings message
         discountComputer.totalSavingsMsg();

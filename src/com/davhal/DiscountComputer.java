@@ -97,6 +97,14 @@ public class DiscountComputer {
     }
 
     /**
+     * Prints total cost of basket after discount message
+     * @param passedBasket
+     */
+    public void totalCostWithDiscountsMsg(Basket passedBasket) {
+        System.out.println("Total cost of basket with discount: " + "£" + applyDiscounts(passedBasket));
+    }
+
+    /**
      * Returns the total savings BigDecimal
      * @return total savings figure
      */
