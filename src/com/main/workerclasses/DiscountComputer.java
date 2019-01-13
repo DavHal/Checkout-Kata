@@ -72,7 +72,7 @@ public class DiscountComputer {
            totalSavings = totalDiscountSavings.add(totalSavings);
        }
 
-       BigDecimal basketTotal = BigDecimal.valueOf(passedBasket.totalCost());
+       BigDecimal basketTotal = passedBasket.totalCost();
 
        BigDecimal postTotalDiscount = basketTotal.subtract(totalSavings);
 

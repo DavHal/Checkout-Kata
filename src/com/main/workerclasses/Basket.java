@@ -3,6 +3,8 @@ package com.main.workerclasses;
 import com.main.Order;
 import com.main.shoppingcartobjects.Item;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -26,12 +28,12 @@ public class Basket extends Order {
      *
      * @return total
      */
-    public double totalCost() {
+    public BigDecimal totalCost() {
 
-        double total = 0;
+        BigDecimal total = new BigDecimal(0);
 
         for (Item i : itemList) {
-            total = total + i.getPrice();
+            total = total.add(BigDecimal.valueOf(i.getPrice()));
         }
         return total;
     }
