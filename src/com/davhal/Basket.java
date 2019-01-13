@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class Basket extends Order {
 
-    ArrayList<Item> itemList;
+    public ArrayList<Item> itemList;
 
     /**
      * Default constructor for Basket object
