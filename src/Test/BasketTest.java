@@ -70,6 +70,7 @@ public class BasketTest {
         try {
             Basket testBasketObject = new Basket();
             double itemPrice = 0.30D;
+
             testBasketObject.itemList.add(new Item("itemTest", itemPrice, 'A'));
             double returnedItemPrice = testBasketObject.getItemPrice('A');
 
@@ -80,5 +81,48 @@ public class BasketTest {
         }
     }
 
+    @Test
+    public void skuFrequencyCountTest() {
+        try {
+            Basket testBasketObject = new Basket();
+            int skuFrequency = 4;
 
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Kiwi", .15D, 'D' ));
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+
+            int returnedSkuFrequency = testBasketObject.skuFrequencyCount('B');
+
+            assertEquals(skuFrequency, returnedSkuFrequency);
+
+        } catch (Exception e) {
+            fail("skuFrequencyCountTest Failed!" + e.getMessage());
+        }
+    }
+
+    @Test
+    public void skuFrequencyCountArrayTest(){
+        try {
+            Basket testBasketObject = new Basket();
+
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Kiwi", .15D, 'D' ));
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Banana", .30D, 'B' ));
+            testBasketObject.itemList.add(new Item("Apple", .50D, 'A' ));
+
+            int[] returnedArray = testBasketObject.skuFrequencyCount();
+
+            assertEquals(26, returnedArray.length);
+            assertEquals(1, returnedArray[0]);
+            assertEquals(4, returnedArray[1]);
+            assertEquals(1, returnedArray[3]);
+
+        } catch (Exception e) {
+            fail("skuFrequencyCountArrayTest Failed" + e.getMessage());
+        }
+    }
 }
