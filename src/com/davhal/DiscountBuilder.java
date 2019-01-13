@@ -10,7 +10,6 @@ public class DiscountBuilder {
 
     ArrayList<Discount> discountsList = new ArrayList<>();
     ArrayList<String> rawDiscountInfo = new ArrayList<>();
-    int addCounterControl = 0;
 
     /**
      * Default constructor
@@ -78,5 +77,13 @@ public class DiscountBuilder {
      */
     public ArrayList<Discount> getDiscountsList() {
         return discountsList;
+    }
+
+    /**
+     * Returns list of current discounts in its raw string format
+     * @return List of current discounts its raw string format
+     */
+    public ArrayList<String> getRawDiscountInfo() {
+        return rawDiscountInfo;
     }
 }

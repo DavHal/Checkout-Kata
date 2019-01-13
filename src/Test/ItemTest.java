@@ -1,5 +1,3 @@
-package Test;
-
 import com.davhal.Item;
 import org.junit.Before;
 import org.junit.Test;
