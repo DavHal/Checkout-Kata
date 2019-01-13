@@ -1,6 +1,11 @@
-package com.davhal;
+package com.main;
 
-import static com.davhal.DiscountComputer.printSkuTable;
+import com.main.workerclasses.Basket;
+import com.main.workerclasses.DiscountBuilder;
+import com.main.workerclasses.DiscountComputer;
+import com.main.shoppingcartobjects.Item;
+
+import static com.main.workerclasses.DiscountComputer.printSkuTable;
 
 public class Main {
 

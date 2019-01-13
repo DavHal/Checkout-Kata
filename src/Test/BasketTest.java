@@ -1,6 +1,6 @@
-import com.davhal.Basket;
-import com.davhal.Item;
-import com.davhal.Order;
+import com.main.workerclasses.Basket;
+import com.main.shoppingcartobjects.Item;
+import com.main.Order;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-import com.davhal.DiscountBuilder;
+import com.main.workerclasses.DiscountBuilder;
 
 import org.junit.Test;
 

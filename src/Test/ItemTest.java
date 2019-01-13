@@ -1,4 +1,4 @@
-import com.davhal.Item;
+import com.main.shoppingcartobjects.Item;
 import org.junit.Before;
 import org.junit.Test;
 

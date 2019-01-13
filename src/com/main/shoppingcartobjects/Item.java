@@ -1,4 +1,4 @@
-package com.davhal;
+package com.main.shoppingcartobjects;
 
 /**
  * Class that holds details of an Item

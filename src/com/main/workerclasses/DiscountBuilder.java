@@ -1,4 +1,6 @@
-package com.davhal;
+package com.main.workerclasses;
+
+import com.main.shoppingcartobjects.Discount;
 
 import java.util.ArrayList;
 

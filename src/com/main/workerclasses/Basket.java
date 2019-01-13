@@ -1,4 +1,7 @@
-package com.davhal;
+package com.main.workerclasses;
+
+import com.main.Order;
+import com.main.shoppingcartobjects.Item;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.davhal;
+package com.main.shoppingcartobjects;
 
 public class Discount {
 
