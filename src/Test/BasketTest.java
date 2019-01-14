@@ -4,6 +4,8 @@ import com.main.Order;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static junit.framework.TestCase.*;
 
 public class BasketTest {
@@ -29,6 +31,7 @@ public class BasketTest {
     public void totalCostMethodTest(){
 
         double totalTestValue = 1D;
+        BigDecimal totalPlaceholder;
 
         try {
             Basket testBasketObject = new Basket();
@@ -36,7 +39,9 @@ public class BasketTest {
             testBasketObject.itemList.add(new Item("itemTest", totalTestValue, 'A'));
             testBasketObject.itemList.add(new Item("itemTest", totalTestValue, 'A'));
 
-            assertEquals((totalTestValue*2), testBasketObject.totalCost());
+            totalPlaceholder = BigDecimal.valueOf(totalTestValue*2);
+
+            assertEquals(totalPlaceholder, testBasketObject.totalCost());
 
         } catch (Exception e) {
             fail("totalCostMethodTest Failed!" + e.getMessage());
